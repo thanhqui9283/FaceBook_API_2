@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <title>demo_API_FaceBook</title>
+</head>
+<body>
+    <p id="demo">
+
+    </p>
+
+    <script type="text/javascript">
+        $.ajax({
+            type: 'GET',
+            url: "https://graph.facebook.com/101506858753683/posts?access_token=EAAAAZAw4FxQIBADbq3bpx586HyJHD8yAbydV8ZCtmkB6SYlvT4V2bJoV3MxLYoqk0ZAVrVJbXTOBwvllHVDVQXZAQDhbDihUF6MyFx8qqdt0tYohewJK4VjIERW5BW5WJDGk6iRv8KdPF0XkQFdblYLmxLSfDJnvbTC3SYrFRplrZAoikhZCLhvZBjCNTBsYKkZD",
+            success: function (response) {             
+                for (var i = 0; i < 3; i++) {
+                
+                    $('#demo').append("<b>Bài thứ " + (i + 1) + "</b><br>");
+                    $('#demo').append("ID: "+response.data[i].id + "<br>");
+                    $('#demo').append("Nội dung: "+response.data[i].message + "<br>");
+                    $('#demo').append("Ngày đăng: "+response.data[i].created_time + "<br>");
+                    
+
+                }
+
+
+            },
+       });
+     
+   
+       </script>
+
+</body>
+</html>
